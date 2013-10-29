@@ -1,0 +1,106 @@
+
+Tutorial: SimpleControls Android App
+
+1. Introduction
+
+This tutorial describes the process for developing Bluetooth 4.0 Low Energy (aka BLE) application on Android 4.3 platform with a sample App called SimpleControls, so that developers could understand how BLE works on Android 4.3. 
+
+2. General
+
+This SimpleControls tutorial is to show how BLE device could interact with BLE capable mobile phones/tablets. We will make use of Arduino and BLE Shield with SimpleControls sketch loaded and the SimpleControls App runs on Android with BLE capable mobile devices (e.g. Nexus 4/7) and the Android version 4.3 or above.
+
+All Red Bear Lab (RBL) examples are based on the framework RBLService.java that defines several APIs for developer to call in order to read/write characteristics.
+
+3. Setup
+
+Arduino with BLE Shield
+
+Load the SimpleControls onto the Arduino with BLE Shield running the SimpleControls sketch.
+
+Android v4.3 phone/tablet
+
+The SimpleControls Android App should be compiled from source code and to be loaded onto the device. However, it is also possible to load the SimpleControls.apk onto the device without compilation to save your time.
+
+4. RBL Service and Characteristics
+
+The SimpleControls sketch will advertise RBL Service (UUID: 713d0000-503e-4c75-ba94-3148f18d941e) so that the Android App can discover and make connection to the BLE Shield. The service contains two characteristics.
+
+TX, UUID: 713d0003-503e-4c75-ba94-3148f18d941e (write without response)
+RX, UUID: 713d0002-503e-4c75-ba94-3148f18d941e (notify)
+The TX characteristic is for sending data to Android while the RX characteristic is for receiving data when notification is enabled by the App.
+
+5. RBLService framework (RBLService.java)
+
+The framework is for developing BLE Android App which used for retrieving data from or sending data to the BLE Shield.
+
+Main methods:
+
+public boolean initialize()
+This method initializes the local Bluetooth adapter.
+	
+public boolean connect(final String address)
+This method connects to the GATT server hosted on the Bluetooth LE device (e.g. the BLE Shield), the address is the BLE device address.
+It returns true if the connection is initiated successfully. The connection result is reported asynchronously through the
+{@code BluetoothGattCallback#onConnectionStateChange(android.bluetooth.BluetoothGatt, int, int)
+} callback.
+
+public void disconnect()
+This method called to disconnects existing connecting or cancel a pending connection.
+
+public void readCharacteristic(BluetoothGattCharacteristic characteristic)
+Reads the requested characteristic from the associated remote device.
+This is an asynchronous operation. The result of the read operation is reported by the onCharacteristicRead(BluetoothGatt, BluetoothGattCharacteristic, int) callback.
+
+Public void readRssi()
+Read the RSSI for a connected remote device.
+The onReadRemoteRssi(BluetoothGatt, int, int) callback will be invoked when the RSSI value has been read.
+
+Public void writeCharacteristic(BluetoothGattCharacteristic characteristic)
+Writes a given characteristic and its values to the associated remote device.
+Once the write operation has been completed, the
+ onCharacteristicWrite(BluetoothGatt, BluetoothGattCharacteristic, int)
+callback is invoked, reporting the result of the operation.
+
+public void setCharacteristicNotification(BluetoothGattCharacteristic characteristic, boolean enabled)
+This method enables or disables notification on a give characteristic.
+
+public BluetoothGattService getSupportedGattService()
+This function requires that service discovery has been completed for the given device.
+If multiple instances of the same service (as indentified by UUID) exist, the first instance of the service is returned.
+
+BluetoothGattCallback methods:
+
+void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacterstic characterstic)
+When readCharacteristic() of RBLService invoked, it¡¯s response the mothod and get a result of a remote characteristic notification.
+
+void onCharacteristicRead(BluetoothGatt gatt, BluetoothGattCharacterstic characterstic, int status)
+When readCharacteristic() of RBLService invoked, it¡¯s response the mothod and get a result of a remote characteristic notification.
+
+void onConnectionStateChanged(BluetoothGatt gatt, int status, int newState)
+When connect() of RBLService invoked, it¡¯s response the mothod and get a connState of a remote GATT server.
+	
+void onReadRemoteRssi(BluetoothGatt gatt, int rssi, int status)
+When readRssi() of RBLService invoked, it¡¯s response the mothod and get a rssi of a remote device.
+
+void onServicesDiscovered(BluetoothGatt gatt, int status)
+When connState is connected and invoke BluetoothGatt¡¯s discoverServices() method, it is response the mothod and get the list of remote services.
+
+5. How it works
+
+Step one:
+To invoke getSystemService() method and transmit Bluetooth parameter to obtain BluetoothManager instance, afterward through BluetoothManager instance invoke getAdapter() method to obtain BluetoothAdapter instance. Afterward you can open up a RBLService and run on backstage, its function is response to BLE series of operations.
+
+Step two:
+After obtain BluetoothAdapter instance, invoke startLeScan() method to search all of BLE device.This method have a BluetoothAdapter.LescanCallback parameter, end of searching who can obtain a BluetoothDevice from the Callback and we can save the device,after that we can operation the RemoteDevice already.
+
+Step three:
+After obtain BluetoothDevice instance, invoke connectGatt() method and we can obtain a BluetoothGatt instance.Most of BLE operations through BluetoothGatt conducted; This method have a parameter BluetoothGattCallback and the CallBack function is response the BluetoothGatt operations. For example, the Callback have a onConnectionStateChange() method, we can through override this method and judgment whether connected. If connected already we can invoke BluetoothGatt¡¯s discoverService() method; So that we also can override the BluetoothGattCallback¡¯s onServicesDiscovered() method to obtain all of RemoteDevice services.
+
+Step four:
+We get the services was storage by List<BluetoothGattService>, we can get the particular service by the service¡¯s UUID and also through service get the BluetoothCharacteristic instance by getCharacteristic() method.
+
+Step five:
+After obtain Characteristic we can conduct read or write operation the data of BLE device. If you want to read the data of RemoteDevice¡¯s Characteristic, you need to invoke BluetoothGatt¡¯s setCharacteristicNotification() method and pass on you just obtain particular characteristic and set notify parameter true of RemoteDevice, afterward invoke Characteristic¡¯s getDescriptor() method and pass on named ClientCharacteristicConfig UUID to get a BluetoothGattDescriptor instance and invoke its setValue() method to pass on a parameter named ENABLE_NOTIFICATION_VALUE, and then we can invoke BluetoothGatt¡¯s writeDescriptor() method. After that, we can invoke BluetoothGatt¡¯s readCharacteristic() method and it will response at BluetoothGattCallback.So that we can override the method of onCharacteristicChanged() and use the afferent characteristic to invoke getValue() method, after then we will achieve read characteristic of remote device operations.
+
+Step six:
+Write operation is easier relative to read operation. Store the characteristic when you get it. Afterwards if you use the write operation, get your buffer to written ready first, and then call the function of this characteristic: setValue() to put the buffer into the characteristic. After that, call the function writeCharacteristic() to send the buffer to the remote device.
