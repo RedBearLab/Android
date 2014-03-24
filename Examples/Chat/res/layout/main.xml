@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:gravity="center"
-    android:orientation="vertical" >
+    android:layout_height="fill_parent" >
 
     <TextView
         android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Char\nDemo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Chat Demo"
         android:textSize="30sp" />
 
     <Button
@@ -17,8 +17,8 @@
         style="@style/button_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_centerInParent="true"
         android:background="@drawable/red_button"
         android:text="Connect" />
 
-</LinearLayout>
+</RelativeLayout>

@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.UUID;
 
 import android.app.Activity;
-import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattService;
 import android.content.BroadcastReceiver;
@@ -29,7 +28,6 @@ public class Chat extends Activity {
 	private final static String TAG = Chat.class.getSimpleName();
 
 	public static final String EXTRAS_DEVICE = "EXTRAS_DEVICE";
-	private BluetoothDevice device;
 	private TextView tv = null;
 	private EditText et = null;
 	private Button btn = null;
@@ -91,8 +89,14 @@ public class Chat extends Activity {
 				BluetoothGattCharacteristic characteristic = map
 						.get(RBLService.UUID_BLE_SHIELD_TX);
 
-				String str = et.getText().toString() + "\r\n";
-				final byte[] tx = str.getBytes();
+				String str = et.getText().toString();
+				byte b = 0x00;
+				byte[] tmp = str.getBytes();
+				byte[] tx = new byte[tmp.length + 1];
+				tx[0] = b;
+				for (int i = 1; i < tmp.length + 1; i++) {
+					tx[i] = tmp[i - 1];
+				}
 
 				characteristic.setValue(tx);
 				mBluetoothLeService.writeCharacteristic(characteristic);
@@ -102,11 +106,9 @@ public class Chat extends Activity {
 		});
 
 		Intent intent = getIntent();
-		Bundle bundle = intent.getExtras();
-		device = bundle.getParcelable(EXTRAS_DEVICE);
 
-		mDeviceAddress = device.getAddress();
-		mDeviceName = device.getName();
+		mDeviceAddress = intent.getStringExtra(Device.EXTRA_DEVICE_ADDRESS);
+		mDeviceName = intent.getStringExtra(Device.EXTRA_DEVICE_NAME);
 
 		getActionBar().setTitle(mDeviceName);
 		getActionBar().setDisplayHomeAsUpEnabled(true);

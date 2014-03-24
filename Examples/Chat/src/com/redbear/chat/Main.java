@@ -1,5 +1,7 @@
 package com.redbear.chat;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -24,11 +26,11 @@ import android.widget.Toast;
 
 public class Main extends Activity {
 	private BluetoothAdapter mBluetoothAdapter;
-	private BluetoothDevice mDevice;
-	private Button connect = null;
 	private static final int REQUEST_ENABLE_BT = 1;
 	private static final long SCAN_PERIOD = 3000;
 	private Dialog mDialog;
+	public static List<BluetoothDevice> mDevices = new ArrayList<BluetoothDevice>();
+	public static Main instance = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,33 +54,52 @@ public class Main extends Activity {
 			return;
 		}
 
-		connect = (Button) findViewById(R.id.btn);
-		connect.setOnClickListener(new OnClickListener() {
-
+		if (!mBluetoothAdapter.isEnabled()) {
+			Intent enableBtIntent = new Intent(
+					BluetoothAdapter.ACTION_REQUEST_ENABLE);
+			startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+		}
+		
+		Button btn = (Button)findViewById(R.id.btn);
+		btn.setOnClickListener(new OnClickListener() {
+			
 			@Override
 			public void onClick(View v) {
 				scanLeDevice();
 
-				showRoundProcessDialog(Main.this,
-						R.layout.loading_process_dialog_anim);
+				showRoundProcessDialog(Main.this, R.layout.loading_process_dialog_anim);
+
 				Timer mTimer = new Timer();
 				mTimer.schedule(new TimerTask() {
 
 					@Override
 					public void run() {
-						Intent deviceListIntent = new Intent(
-								getApplicationContext(), Chat.class);
-						Bundle bundle = new Bundle();
-						bundle.putParcelable(Chat.EXTRAS_DEVICE, mDevice);
-						deviceListIntent.putExtras(bundle);
+						Intent deviceListIntent = new Intent(getApplicationContext(),
+								Device.class);
 						startActivity(deviceListIntent);
 						mDialog.dismiss();
-						Main.this.finish();
 					}
 				}, SCAN_PERIOD);
-
 			}
 		});
+
+		scanLeDevice();
+
+		showRoundProcessDialog(Main.this, R.layout.loading_process_dialog_anim);
+
+		Timer mTimer = new Timer();
+		mTimer.schedule(new TimerTask() {
+
+			@Override
+			public void run() {
+				Intent deviceListIntent = new Intent(getApplicationContext(),
+						Device.class);
+				startActivity(deviceListIntent);
+				mDialog.dismiss();
+			}
+		}, SCAN_PERIOD);
+
+		instance = this;
 	}
 
 	public void showRoundProcessDialog(Context mContext, int layout) {
@@ -97,19 +118,8 @@ public class Main extends Activity {
 		mDialog = new AlertDialog.Builder(mContext).create();
 		mDialog.setOnKeyListener(keyListener);
 		mDialog.show();
-		// 注意此处要放在show之后 否则会报异常
+		// 娉ㄦ��姝ゅ��瑕���惧��show涔���� ������浼���ュ��甯�
 		mDialog.setContentView(layout);
-	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-
-		if (!mBluetoothAdapter.isEnabled()) {
-			Intent enableBtIntent = new Intent(
-					BluetoothAdapter.ACTION_REQUEST_ENABLE);
-			startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
-		}
 	}
 
 	private void scanLeDevice() {
@@ -138,8 +148,9 @@ public class Main extends Activity {
 			runOnUiThread(new Runnable() {
 				@Override
 				public void run() {
-					if (device != null && device.getName().contains("Shield")) {
-						mDevice = device;
+					if (device != null) {
+						if (mDevices.indexOf(device) == -1)
+							mDevices.add(device);
 					}
 				}
 			});
@@ -158,9 +169,9 @@ public class Main extends Activity {
 	}
 
 	@Override
-	protected void onStop() {
-		super.onStop();
+	protected void onDestroy() {
+		super.onDestroy();
 
-		this.finish();
+		System.exit(0);
 	}
 }

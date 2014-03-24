@@ -3,6 +3,6 @@
 
     <string name="app_name">Chat</string>
     <string name="action_settings">Settings</string>
-    <string name="searching">Connecting....</string>
+    <string name="searching">Searching....</string>
 
 </resources>

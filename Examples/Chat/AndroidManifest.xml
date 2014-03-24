@@ -7,7 +7,7 @@
     <uses-sdk
         android:minSdkVersion="18"
         android:targetSdkVersion="18" />
-    
+
     <uses-feature
         android:name="android.hardware.bluetooth_le"
         android:required="true" />
@@ -30,10 +30,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
+        <activity android:name="com.redbear.chat.Chat" >
+        </activity>
         <activity
-            android:name="com.redbear.chat.Chat" ></activity>
-        
+            android:name=".Device"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+
         <service
             android:name="com.redbear.chat.RBLService"
             android:enabled="true" />
