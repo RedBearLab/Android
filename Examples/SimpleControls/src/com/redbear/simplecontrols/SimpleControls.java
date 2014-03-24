@@ -1,5 +1,6 @@
 package com.redbear.simplecontrols;
 
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -54,6 +55,9 @@ public class SimpleControls extends Activity {
 	private byte[] data = new byte[3];
 	private static final int REQUEST_ENABLE_BT = 1;
 	private static final long SCAN_PERIOD = 2000;
+
+	final private static char[] hexArray = { '0', '1', '2', '3', '4', '5', '6',
+			'7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
 
 	private final ServiceConnection mServiceConnection = new ServiceConnection() {
 
@@ -395,20 +399,52 @@ public class SimpleControls extends Activity {
 
 		@Override
 		public void onLeScan(final BluetoothDevice device, final int rssi,
-				byte[] scanRecord) {
+				final byte[] scanRecord) {
+
 			runOnUiThread(new Runnable() {
 				@Override
 				public void run() {
-					if (device != null) {
-						if (device.getName().contains("Shield")
-								|| device.getName().contains("Biscuit")) {
-							mDevice = device;
-						}
+					byte[] serviceUuidBytes = new byte[16];
+					String serviceUuid = "";
+					for (int i = 32, j = 0; i >= 17; i--, j++) {
+						serviceUuidBytes[j] = scanRecord[i];
+					}
+					serviceUuid = bytesToHex(serviceUuidBytes);
+					if (stringToUuidString(serviceUuid).equals(
+							RBLGattAttributes.BLE_SHIELD_SERVICE
+									.toUpperCase(Locale.ENGLISH))) {
+						mDevice = device;
 					}
 				}
 			});
 		}
 	};
+
+	private String bytesToHex(byte[] bytes) {
+		char[] hexChars = new char[bytes.length * 2];
+		int v;
+		for (int j = 0; j < bytes.length; j++) {
+			v = bytes[j] & 0xFF;
+			hexChars[j * 2] = hexArray[v >>> 4];
+			hexChars[j * 2 + 1] = hexArray[v & 0x0F];
+		}
+		return new String(hexChars);
+	}
+
+	private String stringToUuidString(String uuid) {
+		StringBuffer newString = new StringBuffer();
+		newString.append(uuid.toUpperCase(Locale.ENGLISH).substring(0, 8));
+		newString.append("-");
+		newString.append(uuid.toUpperCase(Locale.ENGLISH).substring(8, 12));
+		newString.append("-");
+		newString.append(uuid.toUpperCase(Locale.ENGLISH).substring(12, 16));
+		newString.append("-");
+		newString.append(uuid.toUpperCase(Locale.ENGLISH).substring(16, 20));
+		newString.append("-");
+		newString.append(uuid.toUpperCase(Locale.ENGLISH).substring(20, 32));
+
+		return newString.toString();
+	}
 
 	@Override
 	protected void onStop() {
