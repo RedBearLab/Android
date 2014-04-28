@@ -8,10 +8,10 @@
     <string name="digitalOut">Digital Out</string>
     <string name="digitalIn">Digital In</string>
     <string name="Pin">Pin</string>
-    <string name="pinValue4">[ 4 ]</string>
-    <string name="pinValue5">[ 5 ]</string>
-    <string name="pinValue6">[ 6 ]</string>
-    <string name="pinValue7">[ 7 ]</string>
+    <string name="pinValue4">[ 2 ]</string>
+    <string name="pinValue5">[ A4 ]</string>
+    <string name="pinValue6">[ 3 ]</string>
+    <string name="pinValue7">[ 5 ]</string>
     <string name="pinValueA5">[ A5 ]</string>
     <string name="write">write</string>
     <string name="read">read</string>
