@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/mainpage_listview_item_bg" >
+
+    <TextView
+        android:id="@+id/pin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:maxWidth="100dp"
+        android:minWidth="100dp"
+        android:gravity="center"
+        android:text="Pin\n1"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/io_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:maxWidth="100dp"
+        android:background="@drawable/button_selector"
+        android:minWidth="100dp"
+        android:text="OutPut"
+        android:textSize="17sp" />
+
+    <Switch
+        android:id="@+id/switcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="left|center_vertical"
+        android:switchPadding="1dp"
+        android:textOff="Low"
+        android:maxWidth="100dp"
+        android:minWidth="100dp" 
+        android:textOn="High" 
+        android:thumb="@color/blue" 
+        android:thumbTextPadding="5dp" />
+
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="left|center_vertical" 
+        android:gravity="center"
+        android:text="0"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textSize="16sp"
+        android:maxWidth="100dp"
+        android:minWidth="100dp"
+        android:visibility="gone" />
+
+    <SeekBar
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:maxWidth="80dp"
+        android:minWidth="80dp"  
+        android:max="255"
+        android:visibility="gone" />
+
+</RelativeLayout>

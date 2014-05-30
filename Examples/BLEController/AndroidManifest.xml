@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.redbear.redbearbleclient"
+    android:versionCode="1"
+    android:versionName="@string/version_name" >"
+
+    <uses-sdk
+        android:minSdkVersion="18"
+        android:targetSdkVersion="18" />
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.redbear.redbearbleclient.MainPage"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.redbear.redbearbleclient.SplashScreen"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.redbear.redbearbleclient.SettingPage"
+            android:label="@string/settingpage_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.redbear.redbearbleclient.AddPage"
+            android:label="@string/addpage_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.redbear.redbearbleclient.StandardView"
+            android:label="@string/standardview_name"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <service
+            android:name="com.redbear.RedBearService.RedBearService"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="com.redbear.RedBearService.RedBearService" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
