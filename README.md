@@ -4,6 +4,13 @@ Android
 BLE SDK for Android (v4.3 or above) to work with our BLE development boards.
 
 
+Resources
+=========
+
+1. Android API 18 (Android) BLE Developer Guide<br/>
+http://developer.android.com/guide/topics/connectivity/bluetooth-le.html
+
+
 License
 =======
 
