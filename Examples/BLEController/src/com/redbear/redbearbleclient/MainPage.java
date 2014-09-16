@@ -67,10 +67,16 @@ public class MainPage extends Activity {
 		actionBar.setCustomView(actionbar_layout);
 
 		setContentView(R.layout.activity_main_page);
-
+		
+		/*
 		String osVersion = Build.VERSION.RELEASE;
 		if ((osVersion.charAt(0)) == '4' && (osVersion.charAt(1) == '.')
 				&& (osVersion.charAt(2) >= '3')) {
+		*/
+		
+		int sdkVersion = android.os.Build.VERSION.SDK_INT;
+        	
+        	if(sdkVersion >= 18) {
 
 		} else {
 			AlertDialog.Builder dialog = new AlertDialog.Builder(MainPage.this);
