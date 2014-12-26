@@ -3,6 +3,7 @@ package com.redbear.redbearbleclient;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import android.R.anim;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -69,9 +70,9 @@ public class MainPage extends Activity {
 		setContentView(R.layout.activity_main_page);
 
 		String osVersion = Build.VERSION.RELEASE;
-		if ((osVersion.charAt(0)) == '4' && (osVersion.charAt(1) == '.')
-				&& (osVersion.charAt(2) >= '3')) {
-
+//		if ((osVersion.charAt(0)) == '4' && (osVersion.charAt(1) == '.')
+//				&& (osVersion.charAt(2) >= '3')) {
+if (android.os.Build.VERSION.SDK_INT >= 18) {
 		} else {
 			AlertDialog.Builder dialog = new AlertDialog.Builder(MainPage.this);
 			dialog.setTitle("Error");
