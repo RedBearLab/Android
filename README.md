@@ -1,7 +1,10 @@
+
 Android
 =======
 
 BLE SDK for Android (v4.3 or above) to work with our BLE development boards.
+
+Tested on Nexus 4, 5 and 7 with Android version 4.4.4 and 5.0.
 
 
 Resources
