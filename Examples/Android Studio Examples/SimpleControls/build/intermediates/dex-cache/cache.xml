@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/SimpleControls/libs/android-support-v4.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="4a6be13368bb64c5a0b0460632d228a1a915f58f">
+        <dex dex="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/SimpleControls/build/intermediates/pre-dexed/debug/android-support-v4-3b7f5fbba1f58232930cb7950cc2292e903b75a0.jar" />
+    </item>
+
+</items>

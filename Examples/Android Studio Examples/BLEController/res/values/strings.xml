@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BLE Controller</string>
+    <string name="settingpage_name">Settings</string>
+    <string name="addpage_name">Add</string>
+    <string name="standardview_name">Standard View</string>
+    <string name="title_section3">Custom2</string>
+    <string name="title_section2">Custom1</string>
+    <string name="title_section1">Standard View</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="input_label">Input</string>
+     <string name="send_label">Send</string>
+    <string name="output_Label">Output</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_add">Add</string>
+    <string name="menu_disconnect">Disconnect</string>
+	<string name="pulltorefresh_pullltorefresh_label">Pull down to refresh</string>
+	<string name="pulltorefresh_lasttimeupdate_label">Last update</string>
+	<string name="pulltorefresh_refreshing_label">Refreshing......</string>
+	<string name="pulltorefresh_releasetorefresh_label">Release to update</string>
+	<string name="pulltorefresh_lasttime_label">Last update time:</string>
+	<string name="label_no_devices">No BLE device was found.</string>
+	<string name="bluetooth_not_enable">Bluetooth is not enable!</string>
+	<string name="tip_dialog_title">Tip</string>
+	<string name="ok_title">Ok</string>
+	<string name="version_name">1.0</string>
+</resources>

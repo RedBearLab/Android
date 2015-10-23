@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BLE Select</string>
+    <string name="action_settings">Settings</string>
+    <string name="title">RedBearLab</string>
+    <string name="lastConnectLab">Last connected device:</string>
+    <string name="connLastDevice">Connect Last Device</string>
+    <string name="scanAll">Scan All</string>
+
+</resources>

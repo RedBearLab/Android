@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/libs/android-support-v4.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="4a6be13368bb64c5a0b0460632d228a1a915f58f">
+        <dex dex="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/build/intermediates/pre-dexed/debug/android-support-v4-139158b225a9305706f1cea229c9fd9429e5b7f5.jar" />
+    </item>
+
+</items>

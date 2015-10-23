@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/res"><file name="red_button" path="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/res/drawable/red_button.xml" qualifiers="" type="drawable"/><file name="redbear" path="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/res/drawable/redbear.png" qualifiers="" type="drawable"/><file name="ic_launcher" path="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/res/drawable-hdpi/ic_launcher.png" qualifiers="hdpi-v4" type="drawable"/><file name="ic_launcher" path="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/res/drawable-mdpi/ic_launcher.png" qualifiers="mdpi-v4" type="drawable"/><file name="ic_launcher" path="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/res/drawable-xhdpi/ic_launcher.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ic_launcher" path="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/res/drawable-xxhdpi/ic_launcher.png" qualifiers="xxhdpi-v4" type="drawable"/><file name="device_list" path="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/res/layout/device_list.xml" qualifiers="" type="layout"/><file name="list_item" path="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/res/layout/list_item.xml" qualifiers="" type="layout"/><file name="main" path="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/res/layout/main.xml" qualifiers="" type="layout"/><file name="title" path="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/res/layout/title.xml" qualifiers="" type="layout"/><file name="bleselect" path="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/res/menu/bleselect.xml" qualifiers="" type="menu"/><file path="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/res/values/dimens.xml" qualifiers=""><dimen name="activity_vertical_margin">16dp</dimen><dimen name="activity_horizontal_margin">16dp</dimen></file><file path="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/res/values/strings.xml" qualifiers=""><string name="title">RedBearLab</string><string name="action_settings">Settings</string><string name="lastConnectLab">Last connected device:</string><string name="app_name">BLE Select</string><string name="scanAll">Scan All</string><string name="connLastDevice">Connect Last Device</string></file><file path="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/res/values/styles.xml" qualifiers=""><style name="button_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">3dp</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+
+    </style><style name="title" parent="android:Theme">
+        <item name="android:windowTitleSize">50dp</item>
+        <item name="android:windowTitleBackgroundStyle">@style/CustomWindowTitleBackground</item>
+    </style><style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style><style name="CustomWindowTitleBackground">
+        <item name="android:background">#ff0000</item>
+    </style><style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style></file><file path="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/res/values-sw720dp-land/dimens.xml" qualifiers="sw720dp-land-v13"><dimen name="activity_horizontal_margin">128dp</dimen></file><file path="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/res/values-v11/styles.xml" qualifiers="v11"><style name="AppBaseTheme" parent="android:Theme.Holo.Light">
+        <!-- API 11 theme customizations can go here. -->
+    </style></file><file path="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/res/values-v14/styles.xml" qualifiers="v14"><style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- API 14 theme customizations can go here. -->
+    </style></file></source><source path="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/build/generated/res/rs/debug"/><source path="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/build/generated/res/generated/debug"/></dataSet><dataSet config="debug"><source path="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/build-types/debug/res"/></dataSet><mergedItems/></merger>
