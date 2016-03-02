@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+        jar="/Users/dong/Documents/github/Android/Examples/Android Studio Examples/BLESelect/libs/android-support-v4.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="4a6be13368bb64c5a0b0460632d228a1a915f58f">
+        <dex dex="/Users/dong/Documents/github/Android/Examples/Android Studio Examples/BLESelect/build/intermediates/pre-dexed/debug/android-support-v4-0488db73d233cf09127c1db0e9775000b82e5434.jar" />
+    </item>
+    <item
         jar="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLESelect/libs/android-support-v4.jar"
         jumboMode="false"
         revision="20.0.0"

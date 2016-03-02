@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+        jar="/Users/dong/Documents/github/Android/Examples/Android Studio Examples/Chat/libs/android-support-v4.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="4a6be13368bb64c5a0b0460632d228a1a915f58f">
+        <dex dex="/Users/dong/Documents/github/Android/Examples/Android Studio Examples/Chat/build/intermediates/pre-dexed/debug/android-support-v4-e86e8e37dd86f952c8316ee467d2d02e88c3b20a.jar" />
+    </item>
+    <item
         jar="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/Chat/libs/android-support-v4.jar"
         jumboMode="false"
         revision="20.0.0"

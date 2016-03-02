@@ -91,4 +91,4 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         />
-</RelativeLayout><!-- From: file:/Users/Dong/Desktop/redbear_github/Examples/Android%20Studio%20Examples/BLEController/res/layout/main_page_listview_item.xml -->
+</RelativeLayout><!-- From: file:/Users/dong/Documents/github/Android/Examples/Android%20Studio%20Examples/BLEController/res/layout/main_page_listview_item.xml -->

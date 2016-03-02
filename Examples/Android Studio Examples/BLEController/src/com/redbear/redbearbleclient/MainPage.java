@@ -409,15 +409,17 @@ if (android.os.Build.VERSION.SDK_INT >= 18) {
 			for (Device mTemp : mArrayList) {
 				if (mTemp.address.equals(mDevice.address)) {
 					mTemp.rssi = mDevice.rssi;
-					getActivity().runOnUiThread(new Runnable() {
+                    try {
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (adapter != null) {
+                                    adapter.notifyDataSetChanged();
+                                }
+                            }
+                        });
+                    }catch (Exception e){}
 
-						@Override
-						public void run() {
-							if (adapter != null) {
-								adapter.notifyDataSetChanged();
-							}
-						}
-					});
 					return;
 				}
 			}

@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+        jar="/Users/dong/Documents/github/Android/Examples/Android Studio Examples/SimpleControls/libs/android-support-v4.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="4a6be13368bb64c5a0b0460632d228a1a915f58f">
+        <dex dex="/Users/dong/Documents/github/Android/Examples/Android Studio Examples/SimpleControls/build/intermediates/pre-dexed/debug/android-support-v4-6570c105ccf46cbb34139902a10a95285d2e5f7c.jar" />
+    </item>
+    <item
         jar="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/SimpleControls/libs/android-support-v4.jar"
         jumboMode="false"
         revision="20.0.0"

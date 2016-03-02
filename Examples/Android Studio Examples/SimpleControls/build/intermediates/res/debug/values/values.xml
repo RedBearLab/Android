@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/Dong/Desktop/redbear_github/Examples/Android%20Studio%20Examples/SimpleControls/res/values/dimens.xml -->
+    <!-- From: file:/Users/dong/Documents/github/Android/Examples/Android%20Studio%20Examples/SimpleControls/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/Users/Dong/Desktop/redbear_github/Examples/Android%20Studio%20Examples/SimpleControls/res/values/strings.xml -->
+    <!-- From: file:/Users/dong/Documents/github/Android/Examples/Android%20Studio%20Examples/SimpleControls/res/values/strings.xml -->
     <eat-comment/>
     <string name="AIText">----</string>
     <string name="AnalogIn">Analog In</string>
@@ -26,7 +26,7 @@
     <string name="read">read</string>
     <string name="rssiValue">---</string>
     <string name="write">write</string>
-    <!-- From: file:/Users/Dong/Desktop/redbear_github/Examples/Android%20Studio%20Examples/SimpleControls/res/values/styles.xml -->
+    <!-- From: file:/Users/dong/Documents/github/Android/Examples/Android%20Studio%20Examples/SimpleControls/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--

@@ -2,11 +2,25 @@
 <items version="2" >
 
     <item
+        jar="/Users/dong/Documents/github/Android/Examples/Android Studio Examples/BLEController/libs/android-support-v4.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="b9c504522d97f64025c387493d3989e52bc617bd">
+        <dex dex="/Users/dong/Documents/github/Android/Examples/Android Studio Examples/BLEController/build/intermediates/pre-dexed/debug/android-support-v4-9f82e0ddaed439db97b72f78afadfa89d48c5906.jar" />
+    </item>
+    <item
         jar="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLEController/libs/nineoldandroids-2.4.0.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="59f19e43354d32de831379c23ce03bb259a4c2b7">
         <dex dex="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLEController/build/intermediates/pre-dexed/debug/nineoldandroids-2.4.0-2da6885b380eef415e120d13860c07bc0d588cb4.jar" />
+    </item>
+    <item
+        jar="/Users/dong/Documents/github/Android/Examples/Android Studio Examples/BLEController/libs/nineoldandroids-2.4.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="59f19e43354d32de831379c23ce03bb259a4c2b7">
+        <dex dex="/Users/dong/Documents/github/Android/Examples/Android Studio Examples/BLEController/build/intermediates/pre-dexed/debug/nineoldandroids-2.4.0-6259de167fef15a1b68c0574aac529da7cd12f83.jar" />
     </item>
     <item
         jar="/Users/Dong/Desktop/redbear_github/Examples/Android Studio Examples/BLEController/libs/android-support-v4.jar"
