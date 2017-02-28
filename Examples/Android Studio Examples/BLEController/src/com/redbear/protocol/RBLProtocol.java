@@ -102,6 +102,11 @@ public class RBLProtocol {
 			mRedBearService.writeValue(address, data);
 		}
 	}
+	protected void write(byte[] data){
+		if(mRedBearService != null){
+			mRedBearService.writeValue(address, data);
+		}
+	}
 
 	public void setPinMode(int pin, int mode) {
 		Log.e(TAG, "RBLPRotocol: setPinMode");
@@ -174,6 +179,13 @@ public class RBLProtocol {
 		char buf[] = { 'N', (char) pin, (char) value };
 		write(buf);
 		// write data
+	}
+
+	public void analogWrite(int pin, byte value){
+		Log.e(TAG, "RBLPRotocol: analogWrite value: " + value);
+		byte buf[] = { 'N', (byte) pin,  value };
+		write(buf);
+		//write data
 	}
 
 	public void servoWrite(int pin, int value) {

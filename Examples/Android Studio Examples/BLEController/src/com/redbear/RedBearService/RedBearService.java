@@ -108,6 +108,21 @@ public class RedBearService extends Service {
 		}
 	}
 
+
+	public void writeValue(String deviceAddress, byte[] data) {
+		if (txCharc != null) {
+			//String value = new String(data);//THIS IS WHERE THE BUG IS AT
+
+			if (txCharc.setValue(data)) {
+				if (!mBluetoothGatt.writeCharacteristic(txCharc)) {
+					Log.e(TAG, "Error: writeCharacteristic!");
+				}
+			} else {
+				Log.e(TAG, "Error: setValue!");
+			}
+		}
+	}
+
 	@Override
 	public IBinder onBind(Intent intent) {
 		return mBinder;

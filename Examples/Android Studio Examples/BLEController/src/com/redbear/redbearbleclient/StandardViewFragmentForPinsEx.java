@@ -649,7 +649,7 @@ public class StandardViewFragmentForPinsEx extends Fragment implements
 				if (pinInfo.mode == SERVO) {
 					holder.servo.setMax(130);
 				} else {
-					holder.servo.setMax(130);
+					holder.servo.setMax(255);
 				}
 				holder.servo.setVisibility(View.VISIBLE);
 				holder.servo.setProgress(pinInfo.value);
@@ -703,7 +703,9 @@ public class StandardViewFragmentForPinsEx extends Fragment implements
 					if (mProtocol != null) {
 						PinInfo pinInfo = data.get(key);
 						if (pinInfo.mode == PWM) {
-							mProtocol.analogWrite(key.intValue(), value);
+							//mProtocol.analogWrite(key.intValue(), (byte) value);// old write
+							// correct way to do this is to write byte not char
+							mProtocol.analogWrite(key.intValue(), (byte) value);
 						} else {
 							mProtocol.servoWrite(key.intValue(), value);
 						}
